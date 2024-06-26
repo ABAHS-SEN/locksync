@@ -99,3 +99,9 @@ const revokeAccount = async (req, res) => {
 
 module.exports = { registerUser, loginUser, shareAccount, viewSharedAccounts, revokeAccount };
 
+
+
+
+
+
+
