@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { TextField, Button, Container, Typography, Box } from '@mui/material';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -25,14 +26,62 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" name="username" value={username} onChange={onChange} placeholder="Username" required />
-      <input type="text" name="name" value={name} onChange={onChange} placeholder="Name" required />
-      <input type="number" name="age" value={age} onChange={onChange} placeholder="Age" required />
-      <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
-      <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
-      <button type="submit">Register</button>
-    </form>
+    <Container maxWidth="sm">
+      <Box mt={5}>
+        <Typography variant="h4" align="center">Register</Typography>
+        <form onSubmit={onSubmit}>
+          <TextField
+            label="Username"
+            name="username"
+            value={username}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Name"
+            name="name"
+            value={name}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Age"
+            name="age"
+            type="number"
+            value={age}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <Button type="submit" variant="contained" color="primary" fullWidth>Register</Button>
+        </form>
+      </Box>
+    </Container>
   );
 };
 

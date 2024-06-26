@@ -1,15 +1,31 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import Register from './components/Register';
 import Login from './components/Login';
 import ShareAccount from './components/ShareAccount';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    background: {
+      default: '#121212', // Dark background color
+    },
+  },
+  typography: {
+    allVariants: {
+      color: '#ffffff', // White text
+    },
+  },
+});
+
 const App = () => {
   return (
-    <Router>
-      <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
         <Navbar />
         <Routes>
           <Route path="/register" element={<Register />} />
@@ -17,8 +33,8 @@ const App = () => {
           <Route path="/share" element={<ShareAccount />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 };
 

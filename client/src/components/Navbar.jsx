@@ -1,25 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './css/Navbar.css';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Box } from '@mui/system';
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/share">Share Account</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      </ul>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          LockSync
+        </Typography>
+        <Box>
+          <Button color="inherit" component={Link} to="/register">Register</Button>
+          <Button color="inherit" component={Link} to="/login">Login</Button>
+          <Button color="inherit" component={Link} to="/share">Share Account</Button>
+          <Button color="inherit" component={Link} to="/dashboard">Dashboard</Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

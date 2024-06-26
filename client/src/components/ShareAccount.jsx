@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { TextField, Button, Container, Typography, Box } from '@mui/material';
 
 const ShareAccount = () => {
   const [formData, setFormData] = useState({
@@ -22,11 +23,33 @@ const ShareAccount = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="email" name="email" value={email} onChange={onChange} placeholder="Email of user to share with" required />
-      <input type="text" name="account" value={account} onChange={onChange} placeholder="Account to share" required />
-      <button type="submit">Share Account</button>
-    </form>
+    <Container maxWidth="sm">
+      <Box mt={5}>
+        <Typography variant="h4" align="center">Share Account</Typography>
+        <form onSubmit={onSubmit}>
+          <TextField
+            label="Email of user to share with"
+            name="email"
+            type="email"
+            value={email}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Account to share"
+            name="account"
+            value={account}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <Button type="submit" variant="contained" color="primary" fullWidth>Share Account</Button>
+        </form>
+      </Box>
+    </Container>
   );
 };
 

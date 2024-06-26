@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { TextField, Button, Container, Typography, Box } from '@mui/material';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -22,11 +23,34 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
-      <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
+    <Container maxWidth="sm">
+      <Box mt={5}>
+        <Typography variant="h4" align="center">Login</Typography>
+        <form onSubmit={onSubmit}>
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <TextField
+            label="Password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={onChange}
+            fullWidth
+            margin="normal"
+            required
+          />
+          <Button type="submit" variant="contained" color="primary" fullWidth>Login</Button>
+        </form>
+      </Box>
+    </Container>
   );
 };
 
