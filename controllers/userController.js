@@ -1,9 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const connectDB = require('../config/db');
-
-connectDB();
 
 const registerUser = async (req, res) => {
   const { username, name, age, email, password } = req.body;
@@ -23,7 +20,7 @@ const registerUser = async (req, res) => {
 
     res.cookie('token', token, { httpOnly: true }).status(201).json({ msg: 'User registered successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error in registration:", err.message);
     res.status(500).send('Server error');
   }
 };
@@ -43,7 +40,7 @@ const loginUser = async (req, res) => {
 
     res.cookie('token', token, { httpOnly: true }).json({ msg: 'Logged in successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error in login:", err.message);
     res.status(500).send('Server error');
   }
 };
@@ -62,10 +59,9 @@ const shareAccount = async (req, res) => {
 
     res.status(200).json({ msg: 'Account shared successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error in sharing account:", err.message);
     res.status(500).send('Server error');
   }
-  
 };
 
 const viewSharedAccounts = async (req, res) => {
@@ -73,7 +69,7 @@ const viewSharedAccounts = async (req, res) => {
     const user = await User.findById(req.user.userId);
     if (!user) return res.status(404).json({ msg: 'User not found' });
 
-    res.status(200).json({ sharedAccounts: user.sharedAccounts });
+    res.status(200).json({ user: user.email, sharedAccounts: user.sharedAccounts });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
@@ -87,21 +83,18 @@ const revokeAccount = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ msg: 'User not found' });
 
+    if (!user.sharedAccounts.includes(account)) {
+      return res.status(400).json({ msg: 'Account not found in shared list' });
+    }
+
     user.sharedAccounts = user.sharedAccounts.filter(acc => acc !== account);
     await user.save();
 
     res.status(200).json({ msg: 'Account access revoked successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error in revoking account:", err.message);
     res.status(500).send('Server error');
   }
 };
 
 module.exports = { registerUser, loginUser, shareAccount, viewSharedAccounts, revokeAccount };
-
-
-
-
-
-
-
