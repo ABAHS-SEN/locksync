@@ -3,6 +3,7 @@ const { registerUser, loginUser, shareAccount, viewSharedAccounts, revokeAccount
 const auth = require('../middleware/authMiddleware');
 const router = express.Router();
 
+router.post('/', registerUser);
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.post('/share', auth(), shareAccount);

@@ -28,7 +28,8 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/share" element={<ShareAccount />} />
           <Route path="/dashboard" element={<Dashboard />} />
