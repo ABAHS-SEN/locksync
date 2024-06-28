@@ -23,7 +23,7 @@ const Dashboard = () => {
     <div>
       <h1>Dashboard</h1>
       <h2>Logged in as: {userEmail}</h2>
-      <h3>Accounts shared with you:</h3>
+      <h3>Users account:</h3>
       <ul>
         {sharedAccounts.map((account, index) => (
           <li key={index}>{account}</li>
