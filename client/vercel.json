@@ -10,7 +10,24 @@
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/index.html" }
+      { "src": "/",
+       "dest": "/"
+     },
+      { "src": "/register",
+       "dest": "/"
+     },
+      { "src": "/login",
+       "dest": "/"
+     },
+      { "src": "/share",
+       "dest": "/"
+     },
+      { "src": "/dashborad",
+       "dest": "/"
+     },
+      { "src": "/(.*)",
+        "dest": "/index.html"
+      }
     ]
   }
   
