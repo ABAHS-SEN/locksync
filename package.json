@@ -2,10 +2,11 @@
   "name": "locksync",
   "version": "1.0.0",
   "description": "Backend server for Locksync application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'no build required for server'"
   },
   "keywords": [],
   "author": "Your Name",
