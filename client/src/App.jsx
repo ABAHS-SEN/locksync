@@ -6,6 +6,7 @@ import Login from './components/Login';
 import ShareAccount from './components/ShareAccount';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
+import LandingPage from './components/Landingpage';
 
 const theme = createTheme({
   palette: {
@@ -29,7 +30,7 @@ const App = () => {
         <Navbar />
         <Routes>
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/share" element={<ShareAccount />} />
           <Route path="/dashboard" element={<Dashboard />} />
