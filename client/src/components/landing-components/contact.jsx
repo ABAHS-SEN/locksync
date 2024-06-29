@@ -11,8 +11,8 @@ const Contact = () => {
           <h2 className="text-4xl font-bold mb-4">Want to collabrate in our app Contact Us!</h2>
           <p className="text-lg mb-4">We'd love to hear from you! Drop us a line at:</p>
           <div className="mb-4">
-            <a href="mailto:support@locksync.com" className="text-lg text-gray-300 underline hover:text-white">
-              HELLO@LOCKSYNC.COM
+            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCHrlFSrJZSQWgzHpNMqqkLBWpjPRGWkSrMVDrvLdrlLCTptBtppjmcBHrCRpGNxjzhJzhHg" className="text-lg text-gray-300 underline hover:text-white">
+            abhassen44@gmail.com
             </a>
           </div>
           <p className="text-lg mb-2">Our Social:</p>
