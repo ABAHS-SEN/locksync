@@ -1,9 +1,10 @@
+// server/server.js
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const path = require('path');
 const connectDB = require('./config/db');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 // Load environment variables
 dotenv.config();
@@ -21,15 +22,15 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// API Routes
+// Routes
 app.use('/api/users', require('./routes/userRoutes'));
 
-// Serve static files from the React app
+// Serve static files from the React frontend app
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// The "catchall" handler: for any request that doesn't match one above, send back index.html.
+// Anything that doesn't match the above, send back index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
