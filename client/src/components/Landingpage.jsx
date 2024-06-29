@@ -12,7 +12,7 @@ const LandingPage = () => {
       <div className="max-w-7xl p-4 mx-auto text-center">
         <div className="flex flex-col items-center justify-center min-h-screen">
           <h1 className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">Welcome to Locksync</h1>
-          <h2 className="text-4xl font-semibold mb-6">The best place to sync and share your files securely.</h2>
+          <h2 className="text-4xl font-semibold mb-6">The best place to sync and share your Account securely.</h2>
           <div className="mb-6">
             <a
               href="/register"
@@ -44,9 +44,13 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <div className='w-full h-[1px] bg-gray-700'></div>
       <Usage />
+      <div className='w-full h-[1px] bg-gray-700'></div>
       <AboutUs />
+      <div className='w-full h-[1px] bg-gray-700'></div>
       <Contact />
+      <div className='w-full h-[1px] bg-gray-700'></div>
       <Copyrights />
     </div>
   );

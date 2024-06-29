@@ -3,7 +3,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="bg-black text-white py-16 px-8">
+    <div className="text-white py-16 px-8">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8">
         
         {/* Main Contact Info Section */}
