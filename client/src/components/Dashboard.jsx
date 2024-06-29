@@ -20,7 +20,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
+    <div className='text-4xl flex flex-col gap-4 '>
       <h1>Dashboard</h1>
       <h2>Logged in as: {userEmail}</h2>
       <h3>Users account:</h3>
