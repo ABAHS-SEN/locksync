@@ -3,7 +3,7 @@ import React from 'react';
 
 const Contribute = () => {
   return (
-    <div className="flex justify-between min-h-full px-40 py-16">
+    <div className="bg-blue-600 flex justify-between min-h-full px-40 py-16">
 
      
       <div className="max-w-xl my-5 flex flex-col justify-start gap-8">
