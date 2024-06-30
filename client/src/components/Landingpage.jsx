@@ -4,6 +4,8 @@ import AboutUs from './landing-components/about';
 import Contact from './landing-components/contact';
 import Usage from './landing-components/usage';
 import Copyrights from './landing-components/copyright';
+import Contribute from './landing-components/contribute';
+import Vediosection from './landing-components/videosection';
 import './css/LandingPage.css';
 
 const LandingPage = () => {
@@ -49,6 +51,10 @@ const LandingPage = () => {
       <div className='w-full h-[1px] bg-gray-700'></div>
       <AboutUs />
       <div className='w-full h-[1px] bg-gray-700'></div>
+      <Contribute/>
+      <div className='w-full h-[1px] bg-gray-700'></div>
+    <Vediosection/>
+    <div className='w-full h-[1px] bg-gray-700'></div>
       <Contact />
       <div className='w-full h-[1px] bg-gray-700'></div>
       <Copyrights />
