@@ -1,18 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = https//locksync.onrender.com
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  withCredentials: true, 
+  baseURL: API_URL,
+  withCredentials: true,
 });
 
-export const fetchSharedAccounts = async () => {
-  try {
-    const response = await api.get('/api/users/shared');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching shared accounts:', error.response.data);
-    throw error;
-  }
-};
+export default api;
