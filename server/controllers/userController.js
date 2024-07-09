@@ -91,10 +91,10 @@ const viewSharedAccounts = async (req, res) => {
 };
 
 const revokeAccount = async (req, res) => {
-  const { email, account } = req.body;
+  const { account } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findById(req.user.userId);
     if (!user) return res.status(400).json({ msg: 'User not found' });
 
     if (!user.sharedAccounts.includes(account)) {
@@ -114,4 +114,9 @@ const revokeAccount = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, shareAccount, viewSharedAccounts, revokeAccount };
+const logoutUser = (req, res) => {
+  res.clearCookie('token');
+  res.status(200).json({ message: 'Logged out successfully' });
+};
+
+module.exports = { registerUser, loginUser, shareAccount, viewSharedAccounts, revokeAccount, logoutUser };
