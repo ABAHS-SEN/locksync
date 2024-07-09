@@ -24,7 +24,8 @@ const LandingPage = () => {
       } else {
         clearInterval(intervalId);
       }
-    }, 150); // Adjust speed here (milliseconds)
+      
+    }, 100); // Adjust speed here (milliseconds)
 
     return () => clearInterval(intervalId);
   }, []);
