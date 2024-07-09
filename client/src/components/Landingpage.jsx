@@ -7,13 +7,33 @@ import Copyrights from './landing-components/copyright';
 import Contribute from './landing-components/contribute';
 import Vediosection from './landing-components/videosection';
 import './css/LandingPage.css';
+import { useState,useEffect } from 'react';
+
+
 
 const LandingPage = () => {
+  const [text, setText] = useState('');
+  const fullText = 'WELCOME TO LOCKSYNC';
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const intervalId = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 150); // Adjust speed here (milliseconds)
+
+    return () => clearInterval(intervalId);
+  }, []);
+  
   return (
     <div>
       <div className="max-w-7xl p-4 mx-auto text-center">
         <div className="flex flex-col items-center justify-center min-h-screen">
-          <h1 className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">Welcome to Locksync</h1>
+          <h1 className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">{text}</h1>
           <h2 className="text-4xl font-semibold mb-6">The best place to sync and share your Account securely.</h2>
           <div className="mb-6">
             <a

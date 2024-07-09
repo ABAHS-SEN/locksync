@@ -48,8 +48,18 @@ const Dashboard = () => {
         <h1 className="text-5xl font-bold mb-8">Dashboard</h1>
         
         {/* User Email Display */}
-        <div className="text-2xl mb-6">
-          <span className="font-semibold">Logged in as:</span> {userEmail}
+        <div className="text-2xl mb-6 flex gap-7">
+          {userEmail && (
+            <>
+              <span className="font-semibold">Logged in as: {userEmail}</span>
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
         
         {/* Shared Accounts Section */}
@@ -73,14 +83,6 @@ const Dashboard = () => {
             )}
           </ul>
         </div>
-
-        {/* Logout Button */}
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-8 self-end"
-        >
-          Logout
-        </button>
       </div>
     </div>
   );
