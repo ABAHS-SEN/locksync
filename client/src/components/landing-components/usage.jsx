@@ -18,7 +18,7 @@ const Usage = () => {
         display: 'block',
         opacity: 1,
         scale: 1,
-        duration: 0.3,
+        duration: 0.5,
       });
     };
 
@@ -27,7 +27,7 @@ const Usage = () => {
       gsap.to(image, {
         opacity: 0,
         scale: 0.8,
-        duration: 0.3,
+        duration: 0.5,
         onComplete: () => gsap.set(image, { display: 'none' }),
       });
     };
@@ -38,7 +38,7 @@ const Usage = () => {
         gsap.to(image, {
           x: event.clientX - rect.left - 230,
           y: event.clientY - rect.top - 100,
-          duration: 0.4,
+          duration: 0.6,
         });
       }
     };
