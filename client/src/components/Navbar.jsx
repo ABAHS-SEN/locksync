@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className="bg-green-600">
-      <div className="container mx-auto flex justify-between items-center p-4">
+      <div className="container mx-auto flex justify-between items-center p-4 gap-6 lg:gap-0">
         <div className="flex items-center gap-4">
           <Link to="/" className="text-white text-xl font-bold">
             LockSync

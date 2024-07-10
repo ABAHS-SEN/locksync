@@ -7,6 +7,9 @@ import Copyrights from './landing-components/copyright';
 import Contribute from './landing-components/contribute';
 import Vediosection from './landing-components/videosection';
 import './css/LandingPage.css';
+// import './css/video.css';
+
+
 import { useState,useEffect } from 'react';
 
 
@@ -32,10 +35,10 @@ const LandingPage = () => {
   
   return (
     <div>
-      <div className="max-w-7xl p-4 mx-auto text-center">
+      <div className="p-4 mx-auto text-center max-w-full max-h-screen">
         <div className="flex flex-col items-center justify-center min-h-screen">
           <h1 className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">{text}</h1>
-          <h2 className="text-4xl font-semibold mb-6">The best place to sync and share your Account securely.</h2>
+          <h2 className="lg:text-4xl font-semibold mb-6 text-xl ">The best place to sync and share your Account securely.</h2>
           <div className="mb-6">
             <a
               href="/register"
@@ -51,7 +54,7 @@ const LandingPage = () => {
             </a>
           </div>
           <img
-            className="h-48 w-48 rounded-full"
+            className="h-40 w-40 lg:h-48 lg:w-48 rounded-full"
             src="https://cdn.pixabay.com/photo/2020/03/17/17/46/database-4941338_1280.png"
             alt="example"
           />

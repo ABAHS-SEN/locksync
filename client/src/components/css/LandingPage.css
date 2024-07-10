@@ -76,7 +76,7 @@
   /* margin-top: 2px; */
   position: relative;
   bottom: 3%;
-  width: 44%;
+  width: 50%;
   white-space: nowrap;
   padding: 1.2vw;
   overflow: hidden;
@@ -94,4 +94,55 @@
   100% {
     transform: translateX(-100%);
   }
+}
+
+
+
+@media (max-width: 1024px) {
+  /* Tablet view adjustments */
+  .blur-left {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(to left, transparent, #121212);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .blur-right {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(to right, transparent,#121212);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  #moving-div {
+    /* margin-top: 2px; */
+    position: relative;
+    bottom: 3%;
+    width: 90%;
+    white-space: nowrap;
+    padding: 1.2vw;
+    overflow: hidden;
+  }
+  
+  #moving-div .move {
+    display: inline-block;
+    animation: mobe 20s linear infinite;
+  }
+  
+  @keyframes mobe {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+
 }
