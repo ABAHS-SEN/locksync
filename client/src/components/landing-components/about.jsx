@@ -41,14 +41,26 @@ const AboutUs = () => {
       }
     };
 
-    container.addEventListener('mouseenter', handleMouseEnter);
-    container.addEventListener('mouseleave', handleMouseLeave);
-    container.addEventListener('mousemove', handleMouseMove);
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        container.removeEventListener('mouseenter', handleMouseEnter);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+        container.removeEventListener('mousemove', handleMouseMove);
+      } else {
+        container.addEventListener('mouseenter', handleMouseEnter);
+        container.addEventListener('mouseleave', handleMouseLeave);
+        container.addEventListener('mousemove', handleMouseMove);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
     return () => {
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
       container.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isHovering]);
 
