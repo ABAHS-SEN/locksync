@@ -12,33 +12,35 @@ import './css/LandingPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const LandingPage = () => {
-  const scrollContainerRef = useRef(null);
+  const horizontalRef = useRef(null);
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
-    const sections = gsap.utils.toArray('.horizontal-section');
+    const horizontal = horizontalRef.current;
+    const sections = sectionsRef.current;
 
-    gsap.to(sections, {
+    let scrollTween = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
-      ease: 'none',
+      ease: "none",
       scrollTrigger: {
-        trigger: scrollContainerRef.current,
+        trigger: horizontal,
         pin: true,
         scrub: 1,
         snap: 1 / (sections.length - 1),
-        end: () => `+=${scrollContainerRef.current.offsetWidth}`
+        end: () => "+=" + horizontal.offsetWidth,
       }
     });
 
-    ScrollTrigger.create({
-      trigger: scrollContainerRef.current,
-      start: 'top top',
-      end: () => `+=${scrollContainerRef.current.scrollWidth}`,
-      pin: true,
-      scrub: true
-    });
-
+    return () => {
+      scrollTween.kill();
+    };
   }, []);
 
+  const addToRefs = (el) => {
+    if (el && !sectionsRef.current.includes(el)) {
+      sectionsRef.current.push(el);
+    }
+  };
   return (
     <div>
       <div className="p-4 mx-auto text-center max-w-full max-h-screen">
@@ -77,17 +79,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div ref={scrollContainerRef} className="horizontal-scroll-container">
-        <div className="horizontal-section bg-green-200">
-          <h2 className="text-4xl font-bold">Welcome to our Horizontal Scroll Section</h2>
-        </div>
-        <div className="horizontal-section bg-blue-200">
-          <h2 className="text-4xl font-bold">Scroll Horizontally to see more</h2>
-        </div>
-        <div className="horizontal-section bg-purple-200">
-          <h2 className="text-4xl font-bold">Another Horizontal Section</h2>
-        </div>
-      </div>
+      
 
       <div className='w-full h-[1px] bg-gray-700'></div>
       <Usage />
@@ -96,10 +88,28 @@ const LandingPage = () => {
       <div className='w-full h-[1px] bg-gray-700'></div>
       <Contribute/>
       <div className='w-full h-[1px] bg-gray-700'></div>
+
+      <div ref={horizontalRef} className="horizontal-scroll-section overflow-hidden">
+        <div className="horizontal-scroll-container flex">
+          <section ref={addToRefs} className="panel bg-green-200 w-screen h-screen flex items-center justify-center">
+            <h2 className="text-4xl font-bold">Welcome to our Horizontal Scroll Section</h2>
+          </section>
+          <section ref={addToRefs} className="panel bg-blue-200 w-screen h-screen flex items-center justify-center">
+            <h2 className="text-4xl font-bold">Scroll Horizontally to see more</h2>
+          </section>
+          <section ref={addToRefs} className="panel bg-purple-200 w-screen h-screen flex items-center justify-center">
+            <h2 className="text-4xl font-bold">Another Horizontal Section</h2>
+          </section>
+        </div>
+      </div>
+      
+      <div className='w-full h-[1px] bg-gray-700'></div>
       <Vediosection/>
       <div className='w-full h-[1px] bg-gray-700'></div>
       <Contact />
       <div className='w-full h-[1px] bg-gray-700'></div>
+      
+      
       <Copyrights />
     </div>
   );

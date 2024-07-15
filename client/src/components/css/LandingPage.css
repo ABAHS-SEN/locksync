@@ -148,7 +148,21 @@
     transform: translateX(-100%);
   }
 }
+.horizontal-scroll-section {
+  overflow: hidden;
+}
 
+.horizontal-scroll-container {
+  width: 300%; /* Adjust based on the number of panels */
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+}
 
 
 
