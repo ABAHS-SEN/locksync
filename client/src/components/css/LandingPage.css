@@ -96,6 +96,60 @@
   }
 }
 
+/* LandingPage.css */
+
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.horizontal-section {
+  min-width: 100vw;
+  min-height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.blur-left,
+.blur-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.blur-left {
+  left: 0;
+}
+
+.blur-right {
+  right: 0;
+}
+
+.move {
+  display: inline-block;
+  animation: move 10s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
 
 
 @media (max-width: 1024px) {
