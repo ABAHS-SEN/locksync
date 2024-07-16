@@ -166,13 +166,13 @@ const LandingPage = () => {
       <div ref={horizontalRef} className="horizontal-scroll-section overflow-hidden">
         <div className="horizontal-scroll-container flex">
           <section ref={addToRefs} className="panel bg-green-200 w-screen h-screen flex items-center justify-center">
-            <h2 className="text-4xl font-bold">Welcome to our Horizontal Scroll Section</h2>
+            <h1 className="text-8xl font-bold">SHARE </h1>
           </section>
           <section ref={addToRefs} className="panel bg-blue-200 w-screen h-screen flex items-center justify-center">
-            <h2 className="text-4xl font-bold">Scroll Horizontally to see more</h2>
+            <h1 className="text-8xl font-bold">TEAM UP</h1>
           </section>
           <section ref={addToRefs} className="panel bg-purple-200 w-screen h-screen flex items-center justify-center">
-            <h2 className="text-4xl font-bold">Another Horizontal Section</h2>
+            <h1 className="text-8xl font-bold">DO WORK</h1>
           </section>
         </div>
       </div>
