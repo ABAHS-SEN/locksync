@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import * as THREE from 'three';
+// import * as THREE from 'three';
 import HALO from 'vanta/dist/vanta.halo.min';
 
 const Login = () => {
