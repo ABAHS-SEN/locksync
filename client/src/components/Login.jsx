@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <div ref={vantaRef} style={{ position: 'fixed', width: '100%', height: '100%' }}>
       <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
-      <Box mt={5} className="bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm p-6 rounded-lg">
+      <Box mt={5} className="bg-slate-900 bg-opacity-80 backdrop-filter backdrop-blur-sm p-6 rounded-lg">
           <Typography variant="h4" align="center" sx={{ color: 'white' }}>Login</Typography>
           <form onSubmit={onSubmit}>
             <TextField
