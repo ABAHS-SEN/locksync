@@ -21,13 +21,13 @@ const Login = () => {
           el: vantaRef.current,
           mouseControls: true,
           touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
+          gyroControls: true,
+          minHeight: 100.00,
+          minWidth: 100.00,
           backgroundColor: 0x000000,
           baseColor: 0xfa59,
-          amplitudeFactor: 1,
-          size: 1
+          amplitudeFactor: 2,
+          size: 2.00,
         })
       );
     }
