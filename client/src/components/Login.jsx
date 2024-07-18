@@ -27,7 +27,7 @@ const Login = () => {
           backgroundColor: 0x000000,
           baseColor: 0xfa59,
           amplitudeFactor: 1,
-          size: 2.00,
+          size: 1.00,
         })
       );
     }

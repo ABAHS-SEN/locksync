@@ -27,7 +27,7 @@ const ShareAccount = () => {
           backgroundColor:0x131a43,
           baseColor: 0x000000,
           amplitudeFactor:1 ,
-          size: 2.00,
+          size: 1.00,
 
 
         })
