@@ -39,23 +39,50 @@ const Register = () => {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 2 + 4;
-        this.speedX = Math.random() * 3 - 1;
-        this.speedY = Math.random() * 3 - 1;
+        this.size = Math.random() * 2 + 2;
+        this.baseX = this.x;
+        this.baseY = this.y;
+        this.density = (Math.random() * 30) + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
       }
 
-      update() {
+      update(mouseX, mouseY) {
+        // Original movement
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.size > 0.2) this.size -= 0.1;
+
+        // Bounce off edges
+        if (this.x > canvas.width || this.x < 0) {
+          this.speedX *= -1;
+        }
+        if (this.y > canvas.height || this.y < 0) {
+          this.speedY *= -1;
+        }
+
+        // Mouse repulsion
+        let dx = mouseX - this.x;
+        let dy = mouseY - this.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100) {
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          const maxDistance = 100;
+          const force = (maxDistance - distance) / maxDistance;
+          const directionX = forceDirectionX * force * this.density;
+          const directionY = forceDirectionY * force * this.density;
+          
+          this.x -= directionX;
+          this.y -= directionY;
+        }
       }
 
       draw() {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
-        ctx.lineWidth = 7;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 1);
         ctx.closePath();
         ctx.fill();
       }
@@ -63,6 +90,11 @@ const Register = () => {
 
     let particleArray = [];
     const numberOfParticles = 100;
+    let mouse = {
+      x: undefined,
+      y: undefined,
+      radius: 150
+    };
 
     const init = () => {
       particleArray = [];
@@ -81,7 +113,7 @@ const Register = () => {
 
     const handleParticles = () => {
       for (let i = 0; i < particleArray.length; i++) {
-        particleArray[i].update();
+        particleArray[i].update(mouse.x, mouse.y);
         particleArray[i].draw();
         
         for (let j = i; j < particleArray.length; j++) {
@@ -92,29 +124,33 @@ const Register = () => {
           if (distance < 100) {
             ctx.beginPath();
             ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance/1000})`;
-            ctx.lineWidth = 0.4;
+            ctx.lineWidth = 0.2;
             ctx.moveTo(particleArray[i].x, particleArray[i].y);
             ctx.lineTo(particleArray[j].x, particleArray[j].y);
             ctx.stroke();
             ctx.closePath();
           }
         }
-
-        if (particleArray[i].size <= 0.2) {
-          particleArray.splice(i, 1);
-          i--;
-          const x = Math.random() * canvas.width;
-          const y = Math.random() * canvas.height;
-          particleArray.push(new Particle(x, y));
-        }
       }
     };
+
+    canvas.addEventListener('mousemove', function(event) {
+      mouse.x = event.x;
+      mouse.y = event.y;
+    });
+
+    canvas.addEventListener('mouseout', function() {
+      mouse.x = undefined;
+      mouse.y = undefined;
+    });
 
     init();
     animate();
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      canvas.removeEventListener('mousemove', null);
+      canvas.removeEventListener('mouseout', null);
     };
   }, []);
 

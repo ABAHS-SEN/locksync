@@ -118,7 +118,11 @@ const LandingPage = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
           <h1 ref={titleRef} className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">
             WELCOME TO <br />
-            LOCKSYNC
+            
+            
+          </h1>
+          <h1 ref={titleRef} className="text-5xl font-semibold mb-4 font-poppins text-[8vw] uppercase leading-[8.5vw]">
+                         LOCKSYNC
           </h1>
           <h2 ref={subtitleRef} className="lg:text-4xl font-semibold mb-6 text-xl mt-4">
             The best place to sync and share your Account securely.
